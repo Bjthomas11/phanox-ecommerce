@@ -11,9 +11,11 @@ const Home = ({ productsData, bannerData }) => {
         <p>Speakers of many kinds</p>
       </div>
       <div className="products-container">
-        {productsData?.map((product) => product.name)}
+        {productsData?.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   );
 };
